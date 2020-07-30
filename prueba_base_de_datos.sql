@@ -500,18 +500,17 @@ prueba=# SELECT factura.id_cliente,factura.numero_factura,factura.sub_total FROM
           5 |             10 |    100000\
 (7 rows)\
                                                              \
-prueba=# SELECT factura.id_cliente,factura.numero_factura,factura_item.numero_item,factura.sub_total FROM factura INNER JOIN factura_item ON factura.id_cliente=factura_item.numero_factura INNER JOIN item ON factura_item.numero_item=item.id WHERE factura_item.numero_item=6;\
- id_cliente | numero_factura | numero_item | sub_total \
-------------+----------------+-------------+-----------\
-          3 |              3 |           6 |    107500\
-          3 |              4 |           6 |     13000\
-          3 |              5 |           6 |    103500\
-          5 |              7 |           6 |     40000\
-          5 |              8 |           6 |     15500\
-          5 |              9 |           6 |    165000\
-          5 |             10 |           6 |    100000\
-(7 rows)\
-\
+prueba=# SELECT factura.id_cliente,factura.numero_factura,factura_item.numero_item,factura.sub_total FROM factura INNER JOIN factura_item ON factura.id_cliente=factura_item.numero_factura INNER JOIN item ON factura_item.numero_item=item.id WHERE factura_item.numero_item=6 ORDER BY sub_total DESC;
+ id_cliente | numero_factura | numero_item | sub_total 
+------------+----------------+-------------+-----------
+          5 |              9 |           6 |    165000
+          3 |              3 |           6 |    107500
+          3 |              5 |           6 |    103500
+          5 |             10 |           6 |    100000
+          5 |              7 |           6 |     40000
+          5 |              8 |           6 |     15500
+          3 |              4 |           6 |     13000
+(7 rows)
 prueba=# \
 \
 }
